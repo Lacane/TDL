@@ -4,6 +4,21 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
         <style>
+            #remove-all__ok{
+                border: solid black 1px;
+                margin: 5px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                transition: 0.1s ease;
+            }
+            #remove-all__ok:hover{
+                background-color: firebrick;
+                color: white;
+            }
+            #remove-all__ok:active{
+                background-color: gray;
+                color: whitesmoke;
+            }
             .todo-item{
                 cursor: pointer;
             }
@@ -14,6 +29,7 @@
         </style>
     </head>
     <body>
+        <button id="remove-all__ok">♲</button>  
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">

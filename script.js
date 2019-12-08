@@ -1,13 +1,24 @@
 $("#field").on("keydown", function(event){
     var item;
-    var counter = 0;;
+    var counter = 0;
+    var date = new Date;
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var day = date.getDay();
+    //var seconds = date.getSeconds();
+    
     if(event.which == 13){
         counter++;
         item = $("<li>1.</li>");
         item.addClass("list-group-item todo-item");
+        item.addClass("deletable-group-item");
         item.html($(this).val());
-        $(this).val(" ");
-        
+        if(minutes < 10){
+        $(this).val( hours + ":" + "0" + minutes + ": ");
+        }
+        else{
+            $(this).val( hours + ":" + minutes + ": ");
+        }
         item.click(function(){
            $(this).toggleClass("list-group-item-info"); 
         });
@@ -33,7 +44,14 @@ $("#remove-dialog").on("keydown", function(event){
         removeItems();
     }
 });
+//Delete all objects of list
+var removeAll = function(event){
+    $(".deletable-group-item").remove();
+}
 
+$("#remove-all__ok").on("click", function(){
+    removeAll();
+});
 
 
 
